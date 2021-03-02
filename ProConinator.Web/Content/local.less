@@ -1,0 +1,318 @@
+﻿@import (less) '../content/bootstrap/variables.less';
+
+@topicColor: #2e2cbe;
+
+.contextCommands {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.proConGroups {
+    margin-right: 0;
+    margin-bottom: 0;
+    vertical-align: top;
+    padding: 0 !important;
+    width: 25%;
+}
+
+    .proConGroups > ul {
+        padding-left: 0;
+    }
+
+        .proConGroups > ul > li {
+            background-color: #97c3f8;
+            list-style-type: none;
+            padding-top: 1px;
+            margin-bottom: 5px;
+            cursor: default;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+            .proConGroups > ul > li:hover {
+                background-color: #97f8f2;
+            }
+
+            .proConGroups > ul > li h5 {
+            }
+
+.fixedGroups {
+    position: fixed;
+    top: 0px;
+    /*width: calc(25% - 1px);*/
+
+    @media (min-width: @screen-sm-min) {
+        width: calc(@container-sm / 4 - 7px);
+    }
+
+    @media (min-width: @screen-md-min) {
+        width: calc(@container-md / 4 - 7px);
+    }
+
+    @media (min-width: @screen-lg-min) {
+        width: calc(@container-lg / 4 - 7px);
+    }
+}
+
+.fixedGroup {
+    float: right;
+}
+
+@selectedBorderColor: #428bca;
+.proConGroups{
+    z-index:100;
+}
+
+.proConGroups > ul > li.selected {
+    background-color: #fff;
+    border-top: 1px solid @selectedBorderColor;
+    border-left: 1px solid @selectedBorderColor;
+    border-bottom: 1px solid @selectedBorderColor;
+    border-right: 1px solid transparent;
+    margin-right: -1px;
+    position: relative;
+    z-index: 100;
+}
+
+    .proConGroups > ul > li.selected * {
+        /*z-index:100;*/
+    }
+
+    .proConGroups > ul > li.selected h5 {
+        font-weight: 600;
+    }
+
+.groupItemHeader {
+    font-size: 1.4em;
+    white-space: normal;
+}
+
+.selected .groupItemHeader {
+    font-size: 2em;
+}
+
+.comparisonList {
+    /*border: 1px solid @selectedBorderColor;*/
+    white-space: nowrap;
+}
+
+    .comparisonList > div {
+        display: inline-block;
+    }
+
+.groupContainer {
+    border: 1px solid @selectedBorderColor;
+    display: block;
+    height: 100%;
+    z-index: 10;
+    position: relative;
+    white-space: normal;
+    width: 75%;
+    margin-left: -4px;
+}
+
+.groupStats {
+    padding: 0;
+    margin-left: 10px;
+}
+
+    .groupStats li {
+        margin-top: 5px;
+        list-style-type: none;
+        position: relative;
+        padding: 5px;
+    }
+
+        .groupStats li h4 {
+            margin: 0;
+        }
+
+        .groupStats li span {
+            white-space: nowrap;
+        }
+
+
+.newTopic .form-control {
+    display: inline-block;
+}
+
+.topic {
+    border: solid 1px @topicColor;
+    margin: 5px;
+    /*display: inline-block;*/
+}
+
+    .topic .title {
+        font-size: 1.8em;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5px;
+        padding-left: 5px;
+        color: #fff;
+        background-color: @topicColor;
+        position: relative;
+    }
+
+        .topic .title .commands {
+            color: @topicColor;
+            margin-top: -3px;
+            margin-right: 5px;
+        }
+
+        .topic .title input {
+            color: #000;
+            font-size: .8em;
+            margin-top: 3px;
+            margin-bottom: -5px;
+        }
+
+.topicItemEntry {
+    width:100%;
+}
+.topicItemEntry .firstCell {
+    width: calc(100% - 190px);
+    padding-right: 5px;
+}
+
+    .topicItemEntry .firstCell input {
+        width: 100%;
+        max-width: 100% !important;
+    }
+
+.topicItemEntry .secondCell {
+    width: 190px;
+    white-space: nowrap;
+}
+
+.topicItemEntry, .topicItemEntry div, .topicItemEntry input, .topicItemEntry weight {
+    /*display: inline !important;*/
+}
+
+    .topicItemEntry .weightSelect {
+        top: -1px;
+        vertical-align: top;
+    }
+
+.topicContent {
+    margin: 5px;
+}
+
+
+.inputRow {
+    width: 100%;
+}
+
+.inputRow {
+    white-space: nowrap !important;
+    display: inline-block !important;
+}
+
+.weightSelect {
+    display: inline !important;
+    margin-left: 0px;
+    width: 1%;
+    vertical-align: middle;
+}
+
+    .weightSelect input, .weightSelect button {
+        display: inline !important;
+    }
+
+    .weightSelect input {
+        border: 1px solid #ccc;
+        width: 30px !important;
+        text-align: center;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        float: none !important;
+    }
+
+    .weightSelect button {
+        width: 39px;
+    }
+
+.commands {
+    /*position: absolute;
+    top: 2px;
+    right: 2px;*/
+    position: relative;
+    float: right;
+}
+
+.score {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 28pt;
+    color: #fff;
+}
+
+.comparison {
+    margin-top: 3px;
+    width: 100%;
+}
+
+    .comparison h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: #fff;
+    }
+
+    .comparison td {
+        position: relative;
+        width: 50%;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .comparison thead td {
+        padding: 5px;
+    }
+
+    .comparison ul {
+        padding: 0;
+    }
+
+    .comparison li {
+        list-style-type: none;
+        padding: 5px;
+        position: relative;
+    }
+
+        .comparison li p {
+        }
+
+        .comparison li .commands {
+            position: relative;
+            float: right;
+        }
+
+
+.pro {
+    background-color: #eeffef;
+}
+
+.con {
+    background-color: #fedfdf;
+}
+
+.comparison li span.weight {
+    margin-right: 3px;
+    float: right;
+}
+
+.editRowCommand {
+    display: inline-block;
+    white-space: nowrap;
+    width: 50px;
+    margin-left: auto;
+    float: none;
+}
+
+    .editRowCommand button {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 0px;
+        margin-top: 3px;
+    }

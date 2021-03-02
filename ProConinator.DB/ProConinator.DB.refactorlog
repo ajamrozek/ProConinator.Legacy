@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="ea8c6a6b-6e41-4b5b-a551-38460f0b0cd4" ChangeDateTime="07/19/2015 22:58:43">
+    <Property Name="ElementName" Value="[dbo].[SharedGroups].[Owner]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SharedGroups]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GroupOwner" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="da363e70-634d-419c-b202-e602d68d4d0b" ChangeDateTime="07/19/2015 23:00:12">
+    <Property Name="ElementName" Value="[dbo].[SharedGroups].[GroupOwner]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SharedGroups]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OwnerId" />
+  </Operation>
+</Operations>

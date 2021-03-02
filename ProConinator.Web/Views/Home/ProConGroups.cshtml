@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@model ProConinator.Web.Models.ProConListModel
+<div class="proConGroups" ng-init="loadGroups('@User.Identity.GetUserId()')">
+    <ul>
+        <li ng-repeat="group in groups" 
+            ng-click="selectGroup(group)" 
+            ng-class="{selected : isSelectedGroup(group)}">
+            <div class="commands" >
+                <button class="btn btn-default btn-xs" ng-click="removeGroup('@User.Identity.GetUserId()',group.Id, $index)" ng-show="!groupItemForm.$visible"><span class="glyphicon glyphicon-trash"></span></button>
+                <button class="btn btn-default btn-xs" ng-click="groupItemForm.$show()" ng-show="!groupItemForm.$visible"><span class="glyphicon glyphicon-edit "></span></button>
+            </div>
+            <p class="groupItemHeader" style="display:inline" ng-show="!groupItemForm.$visible">{{group.GroupName}}</p>
+            <form editable-form name="groupItemForm" ng-show="groupItemForm.$visible" class="form-buttons form-inline" ng-submit="saveGroup();groupItemForm.$hide();">
+                <div class="inputRow" ng-show="groupItemForm.$visible">
+                    <input type="text" ng-model="group.GroupName" />
+                </div>
+                <div class="commands editRowCommand">
+                    <button type="button" class="btn btn-default btn-xs" ng-disabled="groupItemForm.$waiting" ng-click="groupItemForm.$cancel()">
+                        <span class="glyphicon glyphicon-remove-circle "></span>
+                    </button>
+                    <button type="submit" class="btn btn-default btn-xs" ng-disabled="groupItemForm.$waiting">
+                        <span class="glyphicon glyphicon-floppy-disk "></span>
+                    </button>
+                </div>
+            </form>
+            <ul class="groupStats">
+                <li ng-repeat="stat in groupStatFunctions" ng-style="stat.data(group).style">
+                    <h4 class="statLabel">{{stat.data(group).title}}</h4><span class="score">{{stat.data(group).value}}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

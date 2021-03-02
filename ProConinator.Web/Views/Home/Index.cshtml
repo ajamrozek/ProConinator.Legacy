@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/local")
+}
+<div class="row contextCommands">
+    <div id="newGroupContainer" class="col-md-5" ng-show="@((User.Identity.IsAuthenticated).ToString().ToLower())">
+        <button type="button" class="btn btn-default btn-lg" ng-show="!newGroupForm.$visible" ng-click="newGroupForm.$show()">
+            New Group <span class="glyphicon glyphicon-plus-sign"></span>
+        </button>
+        <form editable-form name="newGroupForm" ng-show="newGroupForm.$visible" class="form-buttons form-inline" >
+            <div class="inputRow">
+                <input type="text" ng-model="newGroupName" class="form-control" />
+                <div class="editRowCommand">
+                    <button type="button" class="btn btn-lg" ng-click="newGroupName=''; newGroupForm.$hide();">
+                        Cancel <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-lg" ng-click="createGroup(newGroupName, '@User.Identity.GetUserId()');newGroupName=''; newGroupForm.$hide();">
+                        Save <span class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-5 newTopic" ng-show="(!@((User.Identity.IsAuthenticated).ToString().ToLower()) || selectedGroup != null)">
+        <input type="text" id="newTopicText" class="form-control" ng-model="newTopicText" /> 
+        <button ng-disabled="newTopicText == null || newTopicText.length == 0" ng-click="addTopic(newTopicText);newTopicText = ''" class="btn btn-lg">Add Topic</button>
+    </div>
+</div>
+
+<div class="comparisonList">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("ProConGroups")
+    }
+    <div class="groupContainer" >
+        @Html.Partial("Topics")
+    </div>
+</div>
